@@ -33,13 +33,25 @@ def call_api(action, instance_id=None):
         print(f"Error: {response.text}")
         return None
 
+# if __name__ == '__main__':
+#     # Default action: 'create' (change to 'list', 'stop', etc., or set ACTION env var in Jenkins)
+#     action = os.getenv('ACTION', 'create')  # Examples: 'stop', 'list', 'terminate'
+#     instance_id = os.getenv('INSTANCE_ID')  # Optional, e.g., 'i-02faf7724931b5c0c' for stop/terminate
+#     result = call_api(action, instance_id)
+#     if result and 'error' not in str(result).lower():
+#         print("Success! Check EC2 console for details.")
+#     else:
+
+#         print("Failed—check AWS Lambda logs or response above..")
+
+
 if __name__ == '__main__':
-    # Default action: 'create' (change to 'list', 'stop', etc., or set ACTION env var in Jenkins)
-    action = os.getenv('ACTION', 'create')  # Examples: 'stop', 'list', 'terminate'
-    instance_id = os.getenv('INSTANCE_ID')  # Optional, e.g., 'i-02faf7724931b5c0c' for stop/terminate
+    # Default action: 'create' (change to 'stop', etc.)
+    action = 'stop'  # Change this to 'start', 'terminate', or 'create' as needed
+    instance_id = 'i-0187fd2a3d1a7cdf0'  # Replace with your actual EC2 instance ID
+
     result = call_api(action, instance_id)
     if result and 'error' not in str(result).lower():
-        print("Success! Check EC2 console for details.")
+        print("Success! Check EC2 console for details!")
     else:
-
         print("Failed—check AWS Lambda logs or response above..")
