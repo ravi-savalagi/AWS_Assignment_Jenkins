@@ -39,6 +39,7 @@ if __name__ == '__main__':
     instance_id = os.getenv('INSTANCE_ID')  # Optional, e.g., 'i-02faf7724931b5c0c' for stop/terminate
     result = call_api(action, instance_id)
     if result and 'error' not in str(result).lower():
-        print("Success! Check EC2 console for details.")
+        print("Success! Check EC2 console for details!")
     else:
+
         print("Failed—check AWS Lambda logs or response above.")
