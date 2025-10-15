@@ -42,4 +42,4 @@ if __name__ == '__main__':
         print("Success! Check EC2 console for details!")
     else:
 
-        print("Failed—check AWS Lambda logs or response above.")
+        print("Failed—check AWS Lambda logs or response above..")
