@@ -22,7 +22,7 @@ pipeline {
 
         stage('Run Lambda API Trigger') {
             steps {
-                sh 'python3 lambda_api_runner.py'
+                bat 'python lambda_api_runner.py'
             }
         }
     }
